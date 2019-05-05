@@ -74,6 +74,11 @@ function homeRoute(request, response) {
 		response.writeHead(200, {"Content-Type": "image/png"});
 		png.pipe(response);
 	}
+	else if(request.url.match("\.ico$")) {
+		var icon = fs.createReadStream("./favicon.ico");
+		response.writeHead(200, {"Content-Type": "image/x-icon"});
+		icon.pipe(response);
+	}
 	
 } 
 
