@@ -3,20 +3,20 @@ let WeatherReport = require('./weather.js');
 const http = require('http');
 const querystring = require('querystring');
 const fs = require('fs');
+require('dotenv').config();
 
 const commonHeader = {'Content-Type': 'text/html'};
 //let w = new WeatherReport('london');
 
-//const port=process.env.PORT || 3000;
-require('dotenv').config();
+const port=process.env.PORT || 8080;
 
 //1. create http server
 http.createServer(function(request,response){
 	response.writeHead(200, commonHeader);
 	homeRoute(request, response);
 
-}).listen(8080, function() {
-	console.log("server listening at 8080");
+}).listen(port, function() {
+	console.log("server listening at", port);
 });
 
 //2. handle get '/' and post '/' url request
