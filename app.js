@@ -81,7 +81,10 @@ function homeRoute(request, response) {
 		icon.pipe(response);
 	}
 	else {
-		response.redirect('https://weather-forecast-for-7days.herokuapp.com');
+		console.log(request.url);
+		response.writeHead(301, {Location: '/'});
+		response.end();
+		//response.redirect('https://weather-forecast-for-7days.herokuapp.com');
 	}
 } 
 
