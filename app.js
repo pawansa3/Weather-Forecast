@@ -21,7 +21,7 @@ http.createServer(function(request,response){
 
 //2. handle get '/' and post '/' url request
 function homeRoute(request, response) {
-	if(request.url === '/' || request.url.match('\/?')){
+	if(request.url === '/' || request.url === '/?' ){
 		if(request.method.toLowerCase() === 'get') {
 			response.writeHead(200, commonHeader);
 			
