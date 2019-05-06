@@ -22,7 +22,6 @@ http.createServer(function(request,response){
 //2. handle get '/' and post '/' url request
 function homeRoute(request, response) {
 	if(request.url === '/'){
-		console.log(request.url);
 		if(request.method.toLowerCase() === 'get') {
 			response.writeHead(200, commonHeader);
 			
@@ -81,10 +80,8 @@ function homeRoute(request, response) {
 		icon.pipe(response);
 	}
 	else {
-		console.log(request.url);
 		response.writeHead(301, {Location: '/'});
 		response.end();
-		//response.redirect('https://weather-forecast-for-7days.herokuapp.com');
 	}
 } 
 
