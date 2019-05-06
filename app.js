@@ -21,7 +21,7 @@ http.createServer(function(request,response){
 
 //2. handle get '/' and post '/' url request
 function homeRoute(request, response) {
-	if(request.url === '/' || request.url === '/?' ){
+	if(request.url === '/'){
 		if(request.method.toLowerCase() === 'get') {
 			response.writeHead(200, commonHeader);
 			
@@ -79,7 +79,9 @@ function homeRoute(request, response) {
 		response.writeHead(200, {"Content-Type": "image/x-icon"});
 		icon.pipe(response);
 	}
-	
+	else {
+		response.redirect('/');
+	}
 } 
 
 //3. function that handle the reading of files and merge in file
